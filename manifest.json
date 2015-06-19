@@ -1,5 +1,5 @@
 {
-  "name": "Prod",
+  "name": "Overlay",
   "version": "1.0",
   "description": "Add content to pages based on their urls.",
   "background": {
@@ -13,7 +13,7 @@
   ],
   "content_scripts" : [
     {
-      "js" : ["prod.js"],
+      "js" : ["overlay.js"],
       "matches" : ["http://*/*", "https://*/*"],
       "run_at" : "document_idle",
       "all_frames" : false
