@@ -1,0 +1,27 @@
+{
+  "name": "Prod",
+  "version": "1.0",
+  "description": "Add content to pages based on their urls.",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "options_page": "options.html",
+  "permissions" : [
+    "declarativeContent",
+    "storage"
+  ],
+  "content_scripts" : [
+    {
+      "js" : ["prod.js"],
+      "matches" : ["http://*/*", "https://*/*"],
+      "run_at" : "document_idle",
+      "all_frames" : false
+    }
+  ],
+  "icons" : {
+    "48" : "icon-48.png",
+    "128" : "icon-128.png"
+  },
+  "manifest_version": 2
+}

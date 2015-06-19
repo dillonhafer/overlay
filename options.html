@@ -1,0 +1,59 @@
+<style>
+.index {
+  width: 33%;
+}
+.index .selected {
+  background: #CCC;
+  cursor:default;
+}
+
+.edit {
+  width: 66%;
+}
+.edit button, .edit input, .edit label {
+  display: block;
+}
+
+.edit label {
+  margin-top: 5px;
+}
+.edit input[type=text], .edit textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.edit textarea {
+  height: 20em;
+}
+
+.main {
+  width: 200px;
+  text-align: center;
+}
+
+h3 { margin-bottom: 3px; }
+a { color: blue; }
+ul {padding-left: 0;}
+li { width: 100%; padding: 5px; background: #DDD; list-style-type: none; cursor:pointer;}
+</style>
+<div class="index">
+  <ul id='overlays'>
+
+  </ul>
+
+  <button id="new">New</button>
+  <button id="delete">Delete</button>
+</div>
+<form name="edit" class="edit">
+  <label for='pattern'>Pattern</label>
+  <input type='text' id='pattern' name='pattern' placeholder='http://example.com/*' required />
+
+
+  <label for='html'>HTML</label>
+  <textarea id='html' name='html' required></textarea>
+
+  <button id="save">Save</button>
+
+  <script type="text/javascript" src="options.js"></script>
+</form>
