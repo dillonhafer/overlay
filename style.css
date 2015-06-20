@@ -142,7 +142,7 @@ label {
   -webkit-transition: border-color 0.15s linear, background 0.15s linear;
   transition: border-color 0.15s linear, background 0.15s linear;
 }
-.edit textarea { height: 15em; min-height: 50px; }
+.edit textarea { height: 15em; min-height: 50px; font-family: monospace; font-size: 14px;}
 input[type=text]:focus, textarea:focus { outline: none; border: 1px solid #777;}
 
 /****************************************************/

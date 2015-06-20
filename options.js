@@ -24,6 +24,7 @@ var edit = function(li, overlay) {
   editForm.pattern.value = overlay.pattern
   editForm.html.value = overlay.html
   enableDelete()
+  updatePreview()
 }
 
 var save = function() {
