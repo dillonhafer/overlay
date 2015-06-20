@@ -97,7 +97,16 @@ var updatePreview = function() {
   window.frames.preview.document.body.innerHTML = document.forms.edit.html.value
 }
 
+var saveShortcut = function(event) {
+  if (event.metaKey && event.keyCode == 83) {
+    document.forms.edit.save.click()
+    event.preventDefault()
+    return false
+  }
+}
+
 document.forms.edit.addEventListener('submit', save)
 document.getElementById('new').addEventListener('click', newOverlay)
 document.getElementById('delete').addEventListener('click', del)
 document.getElementById('html').addEventListener('keyup', updatePreview)
+document.addEventListener('keydown', saveShortcut)
