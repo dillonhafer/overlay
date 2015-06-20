@@ -17,7 +17,7 @@
         <label>Saved Patterns</label>
         <ul id='overlays'></ul>
         <button id="new" class='button success'>New</button>
-        <button id="delete" class='button alert'>Delete</button>
+        <button id="delete" class='button alert disabled' disabled>Delete</button>
       </div>
       <div class='edit'>
         <form name="edit">
@@ -25,7 +25,7 @@
           <input type='text' id='pattern' name='pattern' placeholder='example.com' required />
 
           <label for='html'>HTML</label>
-          <textarea id='html' name='html' required></textarea>
+          <textarea id='html' name='html' placeholder="<h1 style='color: pink'>Hello world</h1>" required></textarea>
           <button id="save" class='button'>Save</button>
         </form>
       </div>

@@ -1,3 +1,6 @@
+/****************************************************/
+/* Main styles */
+/****************************************************/
 #main {
   max-width: 1000px;
   margin: 0 auto;
@@ -10,12 +13,34 @@ hr {
   height: 0;
   margin: 1.11111rem 0 1.05556rem;
 }
+label {
+  color: #4d4d4d;
+  cursor: pointer;
+  display: block;
+  font-size: 0.97778rem;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+#live-preview {
+  border: 1px solid #CDCDCD;
+  width: 100%;
+  display: inline-block;
+}
+
+/* Header */
+/****************************************************/
 .header img {
   height: 54px;
   width: 54px;
   vertical-align: middle;
   margin-right: 15px;
 }
+
+/****************************************************/
+/* Buttons */
+/****************************************************/
 .button {
   border-radius: 3px;
   font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -38,56 +63,64 @@ hr {
   border-width: 0;
   position: relative;
 }
-
 .button:hover, .button:focus {
   background-color: #007095;
   color: #FFFFFF;
 }
 
-.button.alert {
+/* Button Alert */
+/****************************************************/
+.button.alert { background-color: #f04124; border-color: #cf2a0e; color: #FFFFFF; }
+.button.alert:hover, .button.alert:focus { background-color: #cf2a0e; }
+.button.disabled.alert:hover, .button.disabled.alert:focus, .button[disabled].alert:hover, .button[disabled].alert:focus { background-color: #f04124; }
+.button.disabled.alert, .button[disabled].alert {
   background-color: #f04124;
   border-color: #cf2a0e;
   color: #FFFFFF;
+  box-shadow: none;
+  cursor: default;
+  opacity: 0.4;
 }
 
-.button.alert:hover, .button.alert:focus {
-  background-color: #cf2a0e;
-}
+/* Button Success */
+/****************************************************/
+.button.success { background-color: #43AC6A; border-color: #368a55; color: #FFFFFF; }
+.button.success:hover, .button.success:focus { background-color: #368a55; }
 
-.button.success {
-  background-color: #43AC6A;
-  border-color: #368a55;
-  color: #FFFFFF;
-}
+/****************************************************/
+/* Overlay Management */
+/****************************************************/
 
-.button.success:hover, .button.success:focus {
-  background-color: #368a55;
-}
-
+/* Overlay Index */
+/****************************************************/
 .index {
   width: 30%;
   display: inline-table;
   margin-right: 3%;
   top: 0;
 }
+.index ul { padding-left: 0; }
+.index li {
+  border: 1px solid #CCC;
+  border-bottom: 0;
+  width: 90%;
+  background-color: #F6F6F6;
+  color: #333333;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+  font-weight: normal;
+  padding: 0.83333rem 1.11111rem;
+  list-style-type: none;
+  cursor:pointer;
+}
+.index li:last-child                         { border-bottom: 1px solid #CCC; }
+.index li:nth-child(even)                    { background-color: #ffffff; }
+.index li.selected, .index li.selected:hover { background-color: #008CBA; color: white; cursor:default; }
+.index li:hover                              { background-color: #D6D6D6; }
 
-.edit {
-  width: 65%;
-  display: inline-table;
-}
-.edit button, .edit input, .edit label {
-  display: block;
-}
-
-label {
-  color: #4d4d4d;
-  cursor: pointer;
-  display: block;
-  font-size: 0.97778rem;
-  font-weight: bold;
-  line-height: 1.5;
-  margin-bottom: 0;
-}
+/* Overlay Forms */
+/****************************************************/
+.edit { width: 65%;display: inline-table; }
+.edit button, .edit input, .edit label { display: block; }
 .edit input[type=text], .edit textarea {
   -webkit-appearance: none;
   border-radius: 0;
@@ -109,47 +142,12 @@ label {
   -webkit-transition: border-color 0.15s linear, background 0.15s linear;
   transition: border-color 0.15s linear, background 0.15s linear;
 }
-.edit textarea {
-  height: 15em;
-  min-height: 50px;
-}
+.edit textarea { height: 15em; min-height: 50px; }
 input[type=text]:focus, textarea:focus { outline: none; border: 1px solid #777;}
 
-.index ul {
-  padding-left: 0;
-}
-.index li {
-  border: 1px solid #CCC;
-  border-bottom: 0;
-  width: 90%;
-  background-color: #F6F6F6;
-  color: #333333;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
-  font-weight: normal;
-  padding: 0.83333rem 1.11111rem;
-  list-style-type: none;
-  cursor:pointer;
-}
-.index li:last-child {
-  border-bottom: 1px solid #CCC;
-}
-.index li:nth-child(even) {
-  background-color: #ffffff;
-}
-.index li.selected {
-  background: #CCC;
-  cursor:default;
-}
-.index li:hover {
-  background-color: #D6D6D6;
-}
-
-#live-preview {
-  border: 1px solid #CDCDCD;
-  width: 100%;
-  display: inline-block;
-}
-
+/****************************************************/
+/* Mobile styles */
+/****************************************************/
 @media only screen and (max-width: 40em) {
   .index, .edit {
     margin-right: 0;

@@ -23,6 +23,7 @@ var edit = function(li, overlay) {
   editForm.dataset.idx = li.dataset.idx
   editForm.pattern.value = overlay.pattern
   editForm.html.value = overlay.html
+  enableDelete()
 }
 
 var save = function() {
@@ -44,12 +45,25 @@ var save = function() {
   chrome.storage.sync.set({"overlays": overlays})
 }
 
+var enableDelete = function() {
+  var deleteButton = document.getElementById('delete')
+  deleteButton.removeAttribute('disabled')
+  deleteButton.className = 'button alert'
+}
+
+var disableDelete = function() {
+  var deleteButton = document.getElementById('delete')
+  deleteButton.setAttribute('disabled', 'disabled')
+  deleteButton.className = 'button alert disabled'
+}
+
 var newOverlay = function() {
   editForm = document.forms.edit
   editForm.reset()
   delete editForm.dataset.idx
   editForm.pattern.focus()
   removeSelected()
+  disableDelete()
 }
 
 var del = function() {
