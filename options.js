@@ -1,31 +1,24 @@
-// chrome.storage.sync.set({
-//   "overlays": [
-//     { "pattern": "jack", "html": "<p>Hey Jack!</p>"},
-//     { "pattern": "dillon", "html": "<p>Hey Dillon!</p>"},
-//   ]
-// })
-
 var overlays = []
 
-chrome.storage.sync.get("overlays", function(data) {
+chrome.storage.sync.get('overlays', function(data) {
   if(!data || !data.overlays) {
     return;
   }
 
   overlays = data.overlays
-
   renderOverlayList(overlays)
 })
 
-
-var edit = function(li, overlay) {
+var removeSelected = function() {
   var prevSelected = document.querySelector('#overlays li.selected')
   if(prevSelected) {
-    prevSelected.className = "";
+    prevSelected.className = ''
   }
+}
 
+var edit = function(li, overlay) {
+  removeSelected()
   li.className = "selected"
-
   var editForm = document.forms.edit
   editForm.dataset.idx = li.dataset.idx
   editForm.pattern.value = overlay.pattern
@@ -47,9 +40,7 @@ var save = function() {
     overlays.push(o)
   }
 
-
   renderOverlayList(overlays)
-
   chrome.storage.sync.set({"overlays": overlays})
 }
 
@@ -57,19 +48,21 @@ var newOverlay = function() {
   editForm = document.forms.edit
   editForm.reset()
   delete editForm.dataset.idx
+  editForm.pattern.focus()
+  removeSelected()
 }
 
 var del = function() {
-  var prevSelected = document.querySelector('#overlays li.selected')
-  if(prevSelected) {
-    overlays.splice(prevSelected.dataset["idx"], 1)
+  if (confirm('Are you sure?')) {
+    var prevSelected = document.querySelector('#overlays li.selected')
+    if(prevSelected) {
+      overlays.splice(prevSelected.dataset["idx"], 1)
+    }
+
+    renderOverlayList(overlays)
+    chrome.storage.sync.set({"overlays": overlays})
+    newOverlay()
   }
-
-  renderOverlayList(overlays)
-
-  chrome.storage.sync.set({"overlays": overlays})
-
-  newOverlay()
 }
 
 var renderOverlayList = function(overlays) {
@@ -85,6 +78,11 @@ var renderOverlayList = function(overlays) {
   })
 }
 
+var updatePreview = function() {
+  window.frames.preview.document.body.innerHTML = document.forms.edit.html.value
+}
+
 document.forms.edit.addEventListener('submit', save)
 document.getElementById('new').addEventListener('click', newOverlay)
 document.getElementById('delete').addEventListener('click', del)
+document.getElementById('html').addEventListener('keyup', updatePreview)

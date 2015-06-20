@@ -1,59 +1,39 @@
-<style>
-.index {
-  width: 33%;
-}
-.index .selected {
-  background: #CCC;
-  cursor:default;
-}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Overflow - Options</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <div id="main">
+      <div class="header">
+        <h1>
+          <img src='icon-128.png' alt='Overflow' />
+          Overflow Options
+        </h1>
+        <hr />
+      </div>
+      <div class="index">
+        <label>Saved Patterns</label>
+        <ul id='overlays'></ul>
+        <button id="new" class='button success'>New</button>
+        <button id="delete" class='button alert'>Delete</button>
+      </div>
+      <div class='edit'>
+        <form name="edit">
+          <label for='pattern'>Pattern</label>
+          <input type='text' id='pattern' name='pattern' placeholder='example.com' required />
 
-.edit {
-  width: 66%;
-}
-.edit button, .edit input, .edit label {
-  display: block;
-}
+          <label for='html'>HTML</label>
+          <textarea id='html' name='html' required></textarea>
+          <button id="save" class='button'>Save</button>
+        </form>
+      </div>
+      <hr />
+      <label>Live Preview</label>
+      <iframe name='preview' id='live-preview'></iframe>
+    </div>
 
-.edit label {
-  margin-top: 5px;
-}
-.edit input[type=text], .edit textarea {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 15px;
-}
-
-.edit textarea {
-  height: 20em;
-}
-
-.main {
-  width: 200px;
-  text-align: center;
-}
-
-h3 { margin-bottom: 3px; }
-a { color: blue; }
-ul {padding-left: 0;}
-li { width: 100%; padding: 5px; background: #DDD; list-style-type: none; cursor:pointer;}
-</style>
-<div class="index">
-  <ul id='overlays'>
-
-  </ul>
-
-  <button id="new">New</button>
-  <button id="delete">Delete</button>
-</div>
-<form name="edit" class="edit">
-  <label for='pattern'>Pattern</label>
-  <input type='text' id='pattern' name='pattern' placeholder='http://example.com/*' required />
-
-
-  <label for='html'>HTML</label>
-  <textarea id='html' name='html' required></textarea>
-
-  <button id="save">Save</button>
-
-  <script type="text/javascript" src="options.js"></script>
-</form>
+    <script type="text/javascript" src="options.js"></script>
+  </body>
+</html>
