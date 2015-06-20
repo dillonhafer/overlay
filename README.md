@@ -2,7 +2,7 @@
 
 ## Installing
 
-https://chrome.google.com/webstore/detail/overlay/fnjpldipmbkkjobnhfhdngjljhlabieb
+https://chrome.google.com/webstore/detail/overlay/dhmbadgbadecfhjpkkfjhkehmlfjgkkd
 
 ## About
 
