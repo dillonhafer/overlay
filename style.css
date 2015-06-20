@@ -114,7 +114,7 @@ label {
 }
 .index li:last-child                         { border-bottom: 1px solid #CCC; }
 .index li:nth-child(even)                    { background-color: #ffffff; }
-.index li.selected, .index li.selected:hover { background-color: #008CBA; color: white; cursor:default; }
+.index li.selected, .index li.selected:hover { background-color: #008CBA; border-color: #008CBA; color: white; cursor:default; }
 .index li:hover                              { background-color: #D6D6D6; }
 
 /* Overlay Forms */

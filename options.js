@@ -67,7 +67,7 @@ var newOverlay = function() {
 }
 
 var del = function() {
-  if (confirm('Are you sure?')) {
+  if (confirm('Are you sure you want to delete this Overlay?')) {
     var prevSelected = document.querySelector('#overlays li.selected')
     if(prevSelected) {
       overlays.splice(prevSelected.dataset["idx"], 1)
