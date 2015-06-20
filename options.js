@@ -67,7 +67,8 @@ var newOverlay = function() {
   disableDelete()
 }
 
-var del = function() {
+var del = function(e) {
+  e.preventDefault()
   if (confirm('Are you sure you want to delete this Overlay?')) {
     var prevSelected = document.querySelector('#overlays li.selected')
     if(prevSelected) {
@@ -116,6 +117,6 @@ var setTitle = function() {
 setTitle()
 document.forms.edit.addEventListener('submit', save)
 document.getElementById('new').addEventListener('click', newOverlay)
-document.getElementById('delete').addEventListener('click', del)
+document.getElementById('delete').addEventListener('click', function(e) {del(e)})
 document.getElementById('html').addEventListener('keyup', updatePreview)
 document.addEventListener('keydown', saveShortcut)
