@@ -105,6 +105,15 @@ var saveShortcut = function(event) {
   }
 }
 
+var setTitle = function() {
+  var title = 'Ctrl + S'
+  if (navigator.platform.toUpperCase().indexOf('MAC') >= 0) {
+    var title = 'Command + S'
+  }
+  document.forms.edit.save.title = title
+}
+
+setTitle()
 document.forms.edit.addEventListener('submit', save)
 document.getElementById('new').addEventListener('click', newOverlay)
 document.getElementById('delete').addEventListener('click', del)
