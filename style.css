@@ -99,7 +99,7 @@ label {
   margin-right: 3%;
   top: 0;
 }
-.index ul { padding-left: 0; }
+.index ul { padding-left: 0; margin-top: 0; }
 .index li {
   border: 1px solid #CCC;
   border-bottom: 0;
