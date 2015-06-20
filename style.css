@@ -151,7 +151,7 @@ input[type=text]:focus, textarea:focus { outline: none; border: 1px solid #777;}
 /* Mobile styles */
 /****************************************************/
 @media only screen and (max-width: 40em) {
-  .index, .edit {
+  .index, .edit, .button {
     margin-right: 0;
     width: 100%;
   }
