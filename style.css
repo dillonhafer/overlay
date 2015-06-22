@@ -30,7 +30,9 @@ label {
 .left  { float: left;  }
 .right { float: right; }
 .clear { clear: both;  }
+.text-center { text-align: center; }
 
+/****************************************************/
 /* Header */
 /****************************************************/
 .header img {
@@ -41,12 +43,17 @@ label {
 }
 
 /****************************************************/
+/* Footer */
+/****************************************************/
+.footer { margin-top: 20px; margin-bottom: 20px; line-height: 1.2rem; }
+
+/****************************************************/
 /* Buttons */
 /****************************************************/
 .button {
   border-radius: 3px;
   font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0 -3px 0 rgba(0, 0, 0, 0.2) inset;
   font-weight: bold;
   background-color: #008CBA;
   border-color: #007095;

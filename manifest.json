@@ -1,6 +1,6 @@
 {
   "name": "Overlay",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Add content to pages based on their urls.",
   "options_page": "options.html",
   "permissions" : [
