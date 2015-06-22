@@ -137,7 +137,6 @@ document.getElementById('new').addEventListener('click', newOverlay)
 document.getElementById('delete').addEventListener('click', function(e) {del(e)})
 document.getElementById('html').addEventListener('keyup', updatePreview)
 document.addEventListener('keydown', saveShortcut)
-document.addEventListener('keydown', saveShortcut)
 document.addEventListener('invalid', function(e) {
   if (e.target.validity.customError) { e.target.setCustomValidity('') }
   e.target.validity.valid ? removeErrors(e.target) : addErrors(e.target)
