@@ -114,9 +114,31 @@ var setTitle = function() {
   document.forms.edit.save.title = title
 }
 
+var removeErrors = function(element) {
+  element.setCustomValidity('')
+  element.previousElementSibling.className = ''
+  element.className = ''
+}
+
+var errorMessage = {
+  'pattern': 'A pattern is required. It can be a URL or a RegEx of a URL.',
+  'html': 'HTML is required. The HTML will be appended to the end of the document.'
+}
+
+var addErrors = function(element) {
+  element.setCustomValidity(errorMessage[element.name])
+  element.previousElementSibling.className = 'error'
+  element.className = 'error'
+}
+
 setTitle()
 document.forms.edit.addEventListener('submit', save)
 document.getElementById('new').addEventListener('click', newOverlay)
 document.getElementById('delete').addEventListener('click', function(e) {del(e)})
 document.getElementById('html').addEventListener('keyup', updatePreview)
 document.addEventListener('keydown', saveShortcut)
+document.addEventListener('keydown', saveShortcut)
+document.addEventListener('invalid', function(e) {
+  if (e.target.validity.customError) { e.target.setCustomValidity('') }
+  e.target.validity.valid ? removeErrors(e.target) : addErrors(e.target)
+}, true)

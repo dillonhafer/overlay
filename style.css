@@ -148,6 +148,16 @@ label {
 input[type=text]:focus, textarea:focus { outline: none; border: 1px solid #777;}
 
 /****************************************************/
+/* Error styles */
+/****************************************************/
+input.error, textarea.error {
+  border: 1px solid #f04124 !important;
+}
+label.error {
+  color: #f04124 !important;
+}
+
+/****************************************************/
 /* Mobile styles */
 /****************************************************/
 @media only screen and (max-width: 40em) {
