@@ -14,7 +14,7 @@ export default React.createClass({
   },
   _setSettings: function(data) {
     if (data && data.overlays) {
-      this.setState({overlays: data.overlays});
+      this.setState({overlays: data.overlays, index: data.index});
       window.chrome.storage.sync.set({overlays: data.overlays});
     }
   },
@@ -29,20 +29,37 @@ export default React.createClass({
       html: overlay.html
     });
   },
+  newOverlay: function(e) {
+    e.preventDefault();
+    this.setState({
+      index: null,
+      pattern: null,
+      html: null
+    });
+  },
   updateForm: function(e) {
     let form = {};
     form[e.target.id] = e.target.value;
     this.setState(form);
   },
+  isNewOverlay: function() {
+    return this.state.index === null;
+  },
   saveOverlay: function(e) {
     e.preventDefault();
     let overlays = this.state.overlays;
-    overlays[this.state.index] = {
-      pattern: this.state.pattern,
-      html: this.state.html
-    };
+    let formData = {pattern: this.state.pattern, html: this.state.html};
+    let idx;
 
-    this._setSettings({overlays: overlays});
+    if (this.isNewOverlay()) {
+      idx = overlays.length;
+      overlays.push(formData);
+    } else {
+      idx = this.state.index;
+      overlays[this.state.index] = formData;
+    }
+
+    this._setSettings({overlays: overlays, index: idx});
   },
   render() {
     return (
@@ -51,7 +68,7 @@ export default React.createClass({
           <h1><img src='icon-128.png' alt='Overlay' /> Overlay Options</h1>
           <hr />
         </header>
-        <Overlays currentOverlayIndex={this.state.index} setOverlay={this.setSelectedOverlay} overlays={this.state.overlays} />
+        <Overlays newOverlay={this.newOverlay} currentOverlayIndex={this.state.index} setOverlay={this.setSelectedOverlay} overlays={this.state.overlays} />
         <OverlayForm saveOverlay={this.saveOverlay} pattern={this.state.pattern} html={this.state.html} updateForm={this.updateForm} />
         <LivePreview html={this.state.html} />
 

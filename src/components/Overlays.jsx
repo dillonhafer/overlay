@@ -6,7 +6,8 @@ export default React.createClass({
     overlays: React.PropTypes.array,
     selectedOverlay: React.PropTypes.integer,
     setOverlay: React.PropTypes.func,
-    currentOverlayIndex: React.PropTypes.func
+    currentOverlayIndex: React.PropTypes.func,
+    newOverlay: React.PropTypes.func
   },
   getInitialState: function() {
     return {
@@ -37,7 +38,7 @@ export default React.createClass({
             })
           }
         </ul>
-        <button id="new" className='button success'>New</button>
+        <button id="new" className='button success' onClick={this.props.newOverlay}>New</button>
       </div>
     );
   }
