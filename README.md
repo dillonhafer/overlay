@@ -8,6 +8,14 @@ https://chrome.google.com/webstore/detail/overlay/dhmbadgbadecfhjpkkfjhkehmlfjgk
 
 Add content to pages based on their urls.
 
+## Development
+
+Run the JSX compiler with `npm run dev` then visit `chrome-extension://[hash]/options.dev.html`
+
+## Building for release on the Chrome Web Store
+
+`npm run build`
+
 ## Use
 
 1. Visit the options page from the extensions tab. (`chrome://extensions`)
