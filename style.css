@@ -1,3 +1,18 @@
+
+.deleteOverlay {
+  position: relative;
+  float: right;
+  text-decoration: none;
+  padding: 2px 6px;
+  border-radius: 15px;
+  text-align: center;
+  display: none;
+}
+
+li:hover .deleteOverlay {
+  display: block;
+}
+
 /****************************************************/
 /* Main styles */
 /****************************************************/
@@ -35,7 +50,7 @@ label {
 /****************************************************/
 /* Header */
 /****************************************************/
-.header img {
+header img {
   height: 54px;
   width: 54px;
   vertical-align: middle;
@@ -79,10 +94,10 @@ label {
 
 /* Button Alert */
 /****************************************************/
-.button.alert { background-color: #f04124; border-color: #cf2a0e; color: #FFFFFF; }
-.button.alert:hover, .button.alert:focus { background-color: #cf2a0e; }
-.button.disabled.alert:hover, .button.disabled.alert:focus, .button[disabled].alert:hover, .button[disabled].alert:focus { background-color: #f04124; }
-.button.disabled.alert, .button[disabled].alert {
+.deleteOverlay.alert { background-color: #f04124; border-color: #cf2a0e; color: #FFFFFF; }
+.deleteOverlay.alert:hover, .deleteOverlay.alert:focus { background-color: #cf2a0e; }
+.deleteOverlay.disabled.alert:hover, .deleteOverlay.disabled.alert:focus, .deleteOverlay[disabled].alert:hover, .deleteOverlay[disabled].alert:focus { background-color: #f04124; }
+.deleteOverlay.disabled.alert, .deleteOverlay[disabled].alert {
   background-color: #f04124;
   border-color: #cf2a0e;
   color: #FFFFFF;
