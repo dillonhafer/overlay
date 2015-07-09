@@ -3,7 +3,10 @@ import React from 'react';
 export default React.createClass({
   propTypes: {
     name: React.PropTypes.string,
-    selectedIndex: React.PropTypes.integer
+    selectedIndex: React.PropTypes.integer,
+    index: React.PropTypes.integer,
+    clickListItem: React.PropTypes.func,
+    deleteOverlay: React.PropTypes.func
   },
   getInitialState: function() {
     return {

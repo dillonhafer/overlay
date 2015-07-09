@@ -15,6 +15,7 @@ export default React.createClass({
   _setSettings: function(data) {
     if (data && data.overlays) {
       this.setState({overlays: data.overlays});
+      window.chrome.storage.sync.set({overlays: data.overlays});
     }
   },
   _fetchChromeSettings: function() {
@@ -41,8 +42,6 @@ export default React.createClass({
       html: this.state.html
     };
 
-    console.log(overlays[this.state.index].pattern);
-    window.chrome.storage.sync.set({"overlays": overlays});
     this._setSettings({overlays: overlays});
   },
   render() {

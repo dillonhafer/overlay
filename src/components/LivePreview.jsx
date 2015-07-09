@@ -2,6 +2,10 @@ import React from 'react';
 import Frame from 'react-frame-component';
 
 export default React.createClass({
+  propTypes: {
+    index: React.PropTypes.integer,
+    html: React.PropTypes.string
+  },
   createMarkup: function() {
     return {__html: this.props.html};
   },

@@ -3,7 +3,9 @@ import React from 'react';
 export default React.createClass({
   propTypes: {
     html: React.PropTypes.string,
-    pattern: React.PropTypes.string
+    pattern: React.PropTypes.string,
+    updateForm: React.PropTypes.func,
+    saveOverlay: React.PropTypes.func
   },
   render() {
     return (
