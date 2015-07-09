@@ -6,8 +6,9 @@ export default React.createClass({
     overlays: React.PropTypes.array,
     selectedOverlay: React.PropTypes.integer,
     setOverlay: React.PropTypes.func,
-    currentOverlayIndex: React.PropTypes.func,
-    newOverlay: React.PropTypes.func
+    currentOverlayIndex: React.PropTypes.number,
+    newOverlay: React.PropTypes.func,
+    deleteOverlay: React.PropTypes.func
   },
   getInitialState: function() {
     return {
@@ -17,13 +18,19 @@ export default React.createClass({
   },
   clickListItem: function(e) {
     e.preventDefault();
-    let overlayIdx = parseInt(e.target.dataset.overylayIndex, 10);
-    this.props.setOverlay(overlayIdx);
+    let idx = parseInt(e.target.dataset.overylayIndex, 10);
+    this.props.setOverlay(idx);
+  },
+  confirmMessage: function() {
+    let message = 'Are you sure you want to delete this Overlay?';
+    return message;
   },
   deleteOverlay: function(e) {
     e.preventDefault();
-    let overlayIdx = parseInt(e.target.parentElement.dataset.overylayIndex, 10);
-    let overlay = this.props.overlays[overlayIdx];
+    if (window.confirm(this.confirmMessage())) {
+      let idx = parseInt(e.target.parentElement.dataset.overylayIndex, 10);
+      this.props.deleteOverlay(idx);
+    }
   },
   render() {
     return (

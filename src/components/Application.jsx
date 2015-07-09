@@ -14,7 +14,12 @@ export default React.createClass({
   },
   _setSettings: function(data) {
     if (data && data.overlays) {
-      this.setState({overlays: data.overlays, index: data.index});
+      let state = {overlays: data.overlays, index: data.index};
+      if (data.index === null) {
+        state.html = '';
+        state.pattern = '';
+      }
+      this.setState(state);
       window.chrome.storage.sync.set({overlays: data.overlays});
     }
   },
@@ -22,19 +27,21 @@ export default React.createClass({
     window.chrome.storage.sync.get('overlays', this._setSettings);
   },
   setSelectedOverlay: function(overlayIdx) {
-    let overlay = this.state.overlays[overlayIdx];
-    this.setState({
-      index: overlayIdx,
-      pattern: overlay.pattern,
-      html: overlay.html
-    });
+    if (!isNaN(overlayIdx)) {
+      let overlay = this.state.overlays[overlayIdx];
+      this.setState({
+        index: overlayIdx,
+        pattern: overlay.pattern,
+        html: overlay.html
+      });
+    }
   },
   newOverlay: function(e) {
     e.preventDefault();
     this.setState({
       index: null,
-      pattern: null,
-      html: null
+      pattern: '',
+      html: ''
     });
   },
   updateForm: function(e) {
@@ -61,6 +68,11 @@ export default React.createClass({
 
     this._setSettings({overlays: overlays, index: idx});
   },
+  deleteOverlay: function(idx) {
+    let overlays = this.state.overlays;
+    overlays.splice(idx, 1);
+    this._setSettings({overlays: overlays, index: null});
+  },
   render() {
     return (
       <div>
@@ -68,7 +80,7 @@ export default React.createClass({
           <h1><img src='icon-128.png' alt='Overlay' /> Overlay Options</h1>
           <hr />
         </header>
-        <Overlays newOverlay={this.newOverlay} currentOverlayIndex={this.state.index} setOverlay={this.setSelectedOverlay} overlays={this.state.overlays} />
+        <Overlays newOverlay={this.newOverlay} currentOverlayIndex={this.state.index} setOverlay={this.setSelectedOverlay} overlays={this.state.overlays} deleteOverlay={this.deleteOverlay} />
         <OverlayForm saveOverlay={this.saveOverlay} pattern={this.state.pattern} html={this.state.html} updateForm={this.updateForm} />
         <LivePreview html={this.state.html} />
 

@@ -12,7 +12,7 @@ export default React.createClass({
       <div className='edit'>
         <form name="edit">
           <label htmlFor='pattern'>Pattern</label>
-          <input type='text' id='pattern' name='pattern' placeholder='example.com' value={this.props.pattern} onChange={this.props.updateForm} required />
+          <input type='text' id='pattern' name='pattern' placeholder='example.com' value={this.props.pattern} onChange={this.props.updateForm} required='required' />
           <label htmlFor='html'>HTML</label>
           <textarea id='html' name='html' value={this.props.html} onChange={this.props.updateForm} required></textarea>
           <div className='clear'>
