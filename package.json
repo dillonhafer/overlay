@@ -24,7 +24,8 @@
   "dependencies": {
     "classnames": "^2.1.2",
     "lodash": "^3.9.3",
-    "react": "^0.13.3"
+    "react": "^0.13.3",
+    "react-frame-component": "^0.3.4"
   },
   "devDependencies": {
     "babel": "^5.6.14",

@@ -14,7 +14,7 @@ var config = _.merge(
     output: {
       path: path.join(__dirname),
       publicPath: '/',
-      filename: 'options.react.js'
+      filename: 'options.dev.js'
     },
     devtool: 'inline-source-map'
   }
