@@ -91,6 +91,16 @@ footer { margin-top: 20px; margin-bottom: 20px; line-height: 1.2rem; }
   background-color: #007095;
   color: #FFFFFF;
 }
+.disabled.button:hover, .disabled.button:focus, [disabled].button:hover, [disabled].button:focus { background-color: #008CBA; }
+.disabled.button, [disabled].button {
+  background-color: #008CBA;
+  border-color: #007095;
+  color: #FFFFFF;
+  box-shadow: none;
+  cursor: default;
+  opacity: 0.4;
+}
+
 
 /* Button Alert */
 /****************************************************/
