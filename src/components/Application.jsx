@@ -56,10 +56,9 @@ export default React.createClass({
     e.preventDefault();
     let overlays = this.state.overlays;
     let formData = {pattern: this.state.pattern, html: this.state.html};
-    let idx;
+    let idx      = overlays.length;
 
     if (this.isNewOverlay()) {
-      idx = overlays.length;
       overlays.push(formData);
     } else {
       idx = this.state.index;
@@ -84,10 +83,10 @@ export default React.createClass({
         <OverlayForm saveOverlay={this.saveOverlay} pattern={this.state.pattern} html={this.state.html} updateForm={this.updateForm} />
         <LivePreview html={this.state.html} />
 
-        <div className='footer text-center'>
+        <footer className='text-center'>
           Overylay &copy; 2015<br />
           Version 2.0
-        </div>
+        </footer>
       </div>
     );
   }
