@@ -21,16 +21,10 @@ export default React.createClass({
     let idx = parseInt(e.target.dataset.overylayIndex, 10);
     this.props.setOverlay(idx);
   },
-  confirmMessage: function() {
-    let message = 'Are you sure you want to delete this Overlay?';
-    return message;
-  },
   deleteOverlay: function(e) {
     e.preventDefault();
-    if (window.confirm(this.confirmMessage())) {
-      let idx = parseInt(e.target.parentElement.dataset.overylayIndex, 10);
-      this.props.deleteOverlay(idx);
-    }
+    let idx = parseInt(e.target.parentElement.dataset.overylayIndex, 10);
+    this.props.deleteOverlay(idx);
   },
   render() {
     return (

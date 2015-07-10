@@ -2,6 +2,7 @@ import React from 'react';
 import Overlays from './Overlays';
 import OverlayForm from './OverlayForm';
 import LivePreview from './LivePreview';
+import Confirm from './Confirm';
 
 export default React.createClass({
   getInitialState: function() {
@@ -9,7 +10,8 @@ export default React.createClass({
       overlays: [],
       index: null,
       pattern: '',
-      html: ''
+      html: '',
+      hideModal: true,
     };
   },
   componentDidMount: function() {
@@ -21,6 +23,10 @@ export default React.createClass({
       if (data.index === null) {
         state.html = '';
         state.pattern = '';
+      }
+
+      if (data.hideModal) {
+        state.hideModal = data.hideModal;
       }
       this.setState(state);
       window.chrome.storage.sync.set({overlays: data.overlays});
@@ -70,10 +76,17 @@ export default React.createClass({
 
     this._setSettings({overlays: overlays, index: idx});
   },
-  deleteOverlay: function(idx) {
+  deleteOverlay: function() {
+    let idx = this.state.index;
     let overlays = this.state.overlays;
     overlays.splice(idx, 1);
-    this._setSettings({overlays: overlays, index: null});
+    this._setSettings({overlays: overlays, index: null, hideModal: true});
+  },
+  confirmDelete: function(idx) {
+    this.setState({hideModal: false, index: idx});
+  },
+  cancelDelete: function() {
+    this.setState({hideModal: true});
   },
   render() {
     return (
@@ -85,12 +98,13 @@ export default React.createClass({
                   overlays={this.state.overlays}
                   newOverlay={this.newOverlay}
                   setOverlay={this.setSelectedOverlay}
-                  deleteOverlay={this.deleteOverlay} />
+                  deleteOverlay={this.confirmDelete} />
         <OverlayForm pattern={this.state.pattern}
                      html={this.state.html}
                      saveOverlay={this.saveOverlay}
                      updateForm={this.updateForm} />
         <LivePreview html={this.state.html} />
+        <Confirm hideModal={this.state.hideModal} cancelDelete={this.cancelDelete} deleteOverlay={this.deleteOverlay} />
         <footer className='text-center'>Overylay &copy; 2015<br />Version 2.0</footer>
       </div>
     );

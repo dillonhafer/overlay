@@ -1,5 +1,4 @@
 import React from 'react';
-import Frame from 'react-frame-component';
 
 export default React.createClass({
   propTypes: {
