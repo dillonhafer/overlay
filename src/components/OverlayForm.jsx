@@ -14,7 +14,7 @@ export default React.createClass({
     let cx = React.addons.classSet;
     let classes = cx({
       'button left': true,
-      'disabled': this.isDisabled()
+      disabled: this.isDisabled()
     });
     return (
       <div className='edit'>

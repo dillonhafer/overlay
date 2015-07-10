@@ -5,14 +5,15 @@ export default React.createClass({
   propTypes: {
     html: React.PropTypes.string
   },
-  createMarkup: function() {
-    return {__html: this.props.html};
+  shouldComponentUpdate: function(nextProps) {
+    window.frames.preview.document.body.innerHTML = nextProps.html;
+    return false;
   },
   render() {
     return (
       <div>
         <label>Live Preview</label>
-        <iframe id='live-preview' dangerouslySetInnerHTML={this.createMarkup()}></iframe>
+        <iframe id='live-preview' name='preview'></iframe>
       </div>
     );
   },

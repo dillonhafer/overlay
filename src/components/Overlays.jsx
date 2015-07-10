@@ -4,7 +4,7 @@ import OverlayListItem from './OverlayListItem';
 export default React.createClass({
   propTypes: {
     overlays: React.PropTypes.array,
-    selectedOverlay: React.PropTypes.integer,
+    selectedOverlay: React.PropTypes.number,
     setOverlay: React.PropTypes.func,
     currentOverlayIndex: React.PropTypes.number,
     newOverlay: React.PropTypes.func,
