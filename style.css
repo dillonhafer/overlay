@@ -21,13 +21,6 @@ li:hover .deleteOverlay {
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
 }
-hr {
-  border: solid #DDDDDD;
-  border-width: 1px 0 0;
-  clear: both;
-  height: 0;
-  margin: 1.11111rem 0 1.05556rem;
-}
 label {
   color: #4d4d4d;
   cursor: pointer;
@@ -56,7 +49,11 @@ header img {
   vertical-align: middle;
   margin-right: 15px;
 }
-
+header h1 {
+  border-bottom: 1px solid #DDD;
+  padding-bottom: 15px;
+  clear: both;
+}
 /****************************************************/
 /* Footer */
 /****************************************************/

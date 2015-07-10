@@ -80,20 +80,18 @@ export default React.createClass({
       <div>
         <header>
           <h1><img src='icon-128.png' alt='Overlay' /> Overlay Options</h1>
-          <hr />
         </header>
-        <Overlays newOverlay={this.newOverlay}
-                  currentOverlayIndex={this.state.index}
-                  setOverlay={this.setSelectedOverlay}
+        <Overlays currentOverlayIndex={this.state.index}
                   overlays={this.state.overlays}
+                  newOverlay={this.newOverlay}
+                  setOverlay={this.setSelectedOverlay}
                   deleteOverlay={this.deleteOverlay} />
-        <OverlayForm saveOverlay={this.saveOverlay} pattern={this.state.pattern} html={this.state.html} updateForm={this.updateForm} />
+        <OverlayForm pattern={this.state.pattern}
+                     html={this.state.html}
+                     saveOverlay={this.saveOverlay}
+                     updateForm={this.updateForm} />
         <LivePreview html={this.state.html} />
-
-        <footer className='text-center'>
-          Overylay &copy; 2015<br />
-          Version 2.0
-        </footer>
+        <footer className='text-center'>Overylay &copy; 2015<br />Version 2.0</footer>
       </div>
     );
   }
