@@ -29,9 +29,10 @@ module.exports = function(customConfig) {
   var plugins = [
     new webpack.DefinePlugin({
       'process.env': {
-      NODE_ENV: JSON.stringify(process.env.NODE_ENV || customConfig.nodeEnv || 'development')
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV || customConfig.nodeEnv || 'development'),
       }
-    })
+    }),
+    new webpack.NoErrorsPlugin()
   ];
 
   if (customConfig.plugins && customConfig.plugins.length) {
@@ -138,7 +139,9 @@ module.exports = function(customConfig) {
     plugins: plugins,
 
     eslint: {
-      configFile: customConfig.eslintrcPath || path.join(__dirname, '.eslintrc')
+      configFile: customConfig.eslintrcPath || path.join(__dirname, '.eslintrc'),
+      emitWarning: customConfig.dev,
+      emitError: customConfig.build
     }
   });
 };

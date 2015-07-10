@@ -6,8 +6,8 @@ var webpackConfig = require('./webpack.base.config');
 var config = _.merge(
   webpackConfig({
     hot: true,
-    build: true,
     plugins: [],
+    dev: true,
     eslintrcPath: './_dev.eslintrc'
   }),
   {
