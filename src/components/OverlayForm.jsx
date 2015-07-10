@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react/addons';
 
 export default React.createClass({
   propTypes: {
@@ -7,7 +7,15 @@ export default React.createClass({
     updateForm: React.PropTypes.func,
     saveOverlay: React.PropTypes.func
   },
+  isDisabled: function() {
+    return (this.props.pattern === '' || this.props.html === '');
+  },
   render() {
+    let cx = React.addons.classSet;
+    let classes = cx({
+      'button left': true,
+      'disabled': this.isDisabled()
+    });
     return (
       <div className='edit'>
         <form name="edit">
@@ -16,7 +24,7 @@ export default React.createClass({
           <label htmlFor='html'>HTML</label>
           <textarea id='html' name='html' value={this.props.html} onChange={this.props.updateForm} required></textarea>
           <div className='clear'>
-            <button id="save" name='save' className='button left' onClick={this.props.saveOverlay}>Save</button>
+            <button id="save" name='save' className={classes} onClick={this.props.saveOverlay} disabled={this.isDisabled()}>Save</button>
           </div>
         </form>
       </div>

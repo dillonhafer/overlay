@@ -6,7 +6,10 @@ import LivePreview from './LivePreview';
 export default React.createClass({
   getInitialState: function() {
     return {
-      overlays: []
+      overlays: [],
+      index: null,
+      pattern: '',
+      html: ''
     };
   },
   componentDidMount: function() {
@@ -56,7 +59,7 @@ export default React.createClass({
     e.preventDefault();
     let overlays = this.state.overlays;
     let formData = {pattern: this.state.pattern, html: this.state.html};
-    let idx      = overlays.length;
+    let idx = overlays.length;
 
     if (this.isNewOverlay()) {
       overlays.push(formData);
@@ -79,7 +82,11 @@ export default React.createClass({
           <h1><img src='icon-128.png' alt='Overlay' /> Overlay Options</h1>
           <hr />
         </header>
-        <Overlays newOverlay={this.newOverlay} currentOverlayIndex={this.state.index} setOverlay={this.setSelectedOverlay} overlays={this.state.overlays} deleteOverlay={this.deleteOverlay} />
+        <Overlays newOverlay={this.newOverlay}
+                  currentOverlayIndex={this.state.index}
+                  setOverlay={this.setSelectedOverlay}
+                  overlays={this.state.overlays}
+                  deleteOverlay={this.deleteOverlay} />
         <OverlayForm saveOverlay={this.saveOverlay} pattern={this.state.pattern} html={this.state.html} updateForm={this.updateForm} />
         <LivePreview html={this.state.html} />
 
