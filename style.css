@@ -90,8 +90,9 @@ footer { margin-top: 20px; margin-bottom: 20px; line-height: 1.2rem; }
   background-color: #494D4F;
   color: #FFFFFF;
 }
-.disabled.button:hover, .disabled.button:focus, [disabled].button:hover, [disabled].button:focus { background-color: #008CBA; }
+.disabled.button:hover, .disabled.button:focus, [disabled].button:hover, [disabled].button:focus { cursor: not-allowed; background-color: #5C6062; }
 .disabled.button, [disabled].button {
+  cursor: not-allowed;
   background-color: #5C6062;
   border-color: #5C6062;
   color: #FFFFFF;
