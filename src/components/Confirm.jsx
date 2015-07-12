@@ -17,7 +17,7 @@ export default React.createClass({
       <div id="overlay-container-1" className={classes}>
         <div id="content-settings-page" className="page">
           <a href='#' className="close-button" onClick={this.props.cancelDelete}>&#215;</a>
-          <h1>Confirm Deletion of Overlay</h1>
+          <h1>Confirm Delete</h1>
           <div className="content-area">
             <section>
               <h3>Are you sure you want to delete this overlay?</h3>
