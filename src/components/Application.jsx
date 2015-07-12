@@ -52,6 +52,7 @@ export default React.createClass({
       pattern: '',
       html: ''
     });
+    document.querySelector('#pattern').focus();
   },
   updateForm: function(e) {
     let form = {};

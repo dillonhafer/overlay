@@ -10,6 +10,7 @@ export default React.createClass({
     let cx = React.addons.classSet;
     let classes = cx({
       overlay: true,
+      fadeIn: !this.props.hideModal,
       hide: this.props.hideModal
     });
     return (
@@ -24,7 +25,6 @@ export default React.createClass({
           </div>
           <div className="action-area">
             <div className="button-strip">
-              <a href="#" id="content-settings-overlay-confirm" onClick={this.props.cancelDelete}>Cancel</a>
               <a id="content-settings-overlay-confirm" href='#' className="button alert" onClick={this.props.deleteOverlay}>Delete</a>
             </div>
           </div>

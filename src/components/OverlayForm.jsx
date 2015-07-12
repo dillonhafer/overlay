@@ -1,6 +1,9 @@
 import React from 'react/addons';
 
 export default React.createClass({
+  placeholder: function() {
+    return '<div style="background: red;">You are on Production!</div>';
+  },
   propTypes: {
     html: React.PropTypes.string,
     pattern: React.PropTypes.string,
@@ -19,10 +22,14 @@ export default React.createClass({
     return (
       <div className='edit'>
         <form name="edit">
-          <label htmlFor='pattern'>Pattern</label>
+          <label htmlFor='pattern'>URL Pattern</label>
           <input type='text' id='pattern' name='pattern' placeholder='example.com' value={this.props.pattern} onChange={this.props.updateForm} required='required' />
           <label htmlFor='html'>HTML</label>
-          <textarea id='html' name='html' value={this.props.html} onChange={this.props.updateForm} required></textarea>
+          <pre>
+            <code className="language-css">
+              <textarea id='html' placeholder={this.placeholder()} name='html' value={this.props.html} onChange={this.props.updateForm} required></textarea>
+            </code>
+          </pre>
           <div className='clear'>
             <button id="save" name='save' className={classes} onClick={this.props.saveOverlay} disabled={this.isDisabled()}>Save</button>
           </div>

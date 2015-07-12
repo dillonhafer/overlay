@@ -22,7 +22,7 @@ export default React.createClass({
   render: function() {
     return (
       <li className={this.selectedOverlay()} data-overylay-index={this.props.index} onClick={this.props.clickListItem}>
-        {this.props.name}
+        <strong>{this.props.index + 1}.</strong> {this.props.name}
         <a href='#' className='deleteOverlay alert' onClick={this.props.deleteOverlay}>&#215;</a>
       </li>
     );

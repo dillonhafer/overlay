@@ -7,6 +7,7 @@
   border-radius: 15px;
   text-align: center;
   display: none;
+  transition: background-color 300ms ease-out;
 }
 
 li:hover .deleteOverlay {
@@ -99,25 +100,15 @@ footer { margin-top: 20px; margin-bottom: 20px; line-height: 1.2rem; }
   opacity: 0.4;
 }
 
-
-/* Button Alert */
+/* Alert */
 /****************************************************/
-.deleteOverlay.alert { background-color: #f04124; border-color: #cf2a0e; color: #FFFFFF; }
-.deleteOverlay.alert:hover, .deleteOverlay.alert:focus { background-color: #cf2a0e; }
-.deleteOverlay.disabled.alert:hover, .deleteOverlay.disabled.alert:focus, .deleteOverlay[disabled].alert:hover, .deleteOverlay[disabled].alert:focus { background-color: #f04124; }
-.deleteOverlay.disabled.alert, .deleteOverlay[disabled].alert {
-  background-color: #f04124;
-  border-color: #cf2a0e;
-  color: #FFFFFF;
-  box-shadow: none;
-  cursor: default;
-  opacity: 0.4;
-}
+.alert { background-color: #f04124; border-color: #cf2a0e; color: #FFFFFF; }
+.alert:hover, .alert:focus { background-color: #cf2a0e; }
 
-/* Button Success */
+/* Success */
 /****************************************************/
-.button.success { background-color: #43AC6A; border-color: #368a55; color: #FFFFFF; }
-.button.success:hover, .button.success:focus { background-color: #368a55; }
+.success { background-color: #43AC6A; border-color: #368a55; color: #FFFFFF; }
+.success:hover, .success:focus { background-color: #368a55; }
 
 /****************************************************/
 /* Overlay Management */
@@ -205,7 +196,6 @@ label.error {
   -webkit-box-align: center;
   -webkit-box-orient: vertical;
   -webkit-box-pack: center;
-  /* TODO(dbeam): remove perspective when http://crbug.com/374970 is fixed. */
   -webkit-perspective: 1px;
   -webkit-transition: 200ms opacity;
   background-color: rgba(255, 255, 255, 0.75);
@@ -271,28 +261,25 @@ label.error {
 }
 
 .overlay .page > .close-button {
-  background-image: -webkit-image-set(url(chrome://theme/IDR_CLOSE_DIALOG) 1x, url(chrome://theme/IDR_CLOSE_DIALOG@2x) 2x);
-  background-position: center;
-  background-repeat: no-repeat;
   height: 14px;
   position: absolute;
-  right: 7px;
-  top: 7px;
+  right: 20px;
+  top: 0px;
   width: 14px;
   z-index: 1;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 32px;
+  transition: color 300ms ease-in-out;
+}
+.overlay .page > .close-button:hover {
+  color: #AAA;
 }
 
 html[dir='rtl'] .overlay .page > .close-button {
   left: 10px;
   right: auto;
-}
-
-.overlay .page > .close-button:hover {
-  background-image: -webkit-image-set(url(chrome://theme/IDR_CLOSE_DIALOG_H) 1x, url(chrome://theme/IDR_CLOSE_DIALOG_H@2x) 2x);
-}
-
-.overlay .page > .close-button:active {
-  background-image: -webkit-image-set(url(chrome://theme/IDR_CLOSE_DIALOG_P) 1x, url(chrome://theme/IDR_CLOSE_DIALOG_P@2x) 2x);
 }
 
 .overlay .page h1 {
@@ -400,3 +387,11 @@ html[dir='rtl'] .overlay .page .action-area {
   opacity: 0;
 }
 
+.fadeIn {
+  animation: fadein 0.35s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
