@@ -255,6 +255,7 @@ label.error {
   overflow: auto;
   padding: 6px 17px 6px;
   position: relative;
+  text-align: center;
 }
 
 .overlay .page .action-area {

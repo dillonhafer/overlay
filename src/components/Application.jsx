@@ -105,7 +105,7 @@ export default React.createClass({
                      saveOverlay={this.saveOverlay}
                      updateForm={this.updateForm} />
         <LivePreview html={this.state.html} />
-        <Confirm hideModal={this.state.hideModal} cancelDelete={this.cancelDelete} deleteOverlay={this.deleteOverlay} />
+        <Confirm index={this.state.index} overlays={this.state.overlays} hideModal={this.state.hideModal} cancelDelete={this.cancelDelete} deleteOverlay={this.deleteOverlay} />
         <footer className='text-center'>Overylay &copy; 2015<br />Version 2.0</footer>
       </div>
     );

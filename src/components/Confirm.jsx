@@ -4,7 +4,13 @@ export default React.createClass({
   propTypes: {
     cancelDelete: React.PropTypes.func,
     deleteOverlay: React.PropTypes.func,
+    overlays: React.PropTypes.array,
+    index: React.PropTypes.number,
     hideModal: React.PropTypes.bool
+  },
+  pattern: function() {
+    let overlay = this.props.overlays[this.props.index] || {pattern: ''};
+    return overlay.pattern;
   },
   render() {
     let cx = React.addons.classSet;
@@ -20,7 +26,9 @@ export default React.createClass({
           <h1>Confirm Delete</h1>
           <div className="content-area">
             <section>
-              <h3>Are you sure you want to delete this overlay?</h3>
+              <p>Are you sure you want to delete the overlay for:</p>
+              <h3>{this.pattern()}</h3>
+              <p>This cannot be undone.</p>
             </section>
           </div>
           <div className="action-area">
