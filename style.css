@@ -33,7 +33,9 @@ label {
 #live-preview {
   border: 1px solid #CDCDCD;
   width: 100%;
+  min-height: 500px;
   display: inline-block;
+  border-radius: 3px;
 }
 .left  { float: left;  }
 .right { float: right; }
@@ -67,8 +69,8 @@ footer { margin-top: 20px; margin-bottom: 20px; line-height: 1.2rem; }
   font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   box-shadow: 0 -3px 0 rgba(0, 0, 0, 0.2) inset;
   font-weight: bold;
-  background-color: #008CBA;
-  border-color: #007095;
+  background-color: #5C6062;
+  border-color: #5C6062;
   color: #FFFFFF;
   padding: 0.88889rem 1.77778rem 0.94444rem 1.77778rem;
   font-size: 0.88889rem;
@@ -85,13 +87,13 @@ footer { margin-top: 20px; margin-bottom: 20px; line-height: 1.2rem; }
   position: relative;
 }
 .button:hover, .button:focus {
-  background-color: #007095;
+  background-color: #494D4F;
   color: #FFFFFF;
 }
 .disabled.button:hover, .disabled.button:focus, [disabled].button:hover, [disabled].button:focus { background-color: #008CBA; }
 .disabled.button, [disabled].button {
-  background-color: #008CBA;
-  border-color: #007095;
+  background-color: #5C6062;
+  border-color: #5C6062;
   color: #FFFFFF;
   box-shadow: none;
   cursor: default;
@@ -133,10 +135,12 @@ footer { margin-top: 20px; margin-bottom: 20px; line-height: 1.2rem; }
   list-style-type: none;
   cursor:pointer;
 }
-.index li:last-child                         { border-bottom: 1px solid #CCC; }
-.index li:nth-child(even)                    { background-color: #ffffff; }
-.index li.selected, .index li.selected:hover { background-color: #008CBA; border-color: #008CBA; color: white; cursor:default; }
-.index li:hover                              { background-color: #D6D6D6; }
+.index li:first-child     { border-radius: 3px 3px 0px 0px; }
+.index li:last-child      { border-bottom: 1px solid #CCC; border-radius: 0px 0px 3px 3px; }
+.index li:nth-child(even) { background-color: #ffffff; }
+.index li.selected,
+.index li.selected:hover  { background-color: #5C6062; border-color: #5C6062; color: white; cursor:default; }
+.index li:hover           { background-color: #D6D6D6; }
 
 /* Overlay Forms */
 /****************************************************/
@@ -144,7 +148,7 @@ footer { margin-top: 20px; margin-bottom: 20px; line-height: 1.2rem; }
 .edit button, .edit input, .edit label { display: block; }
 .edit input[type=text], .edit textarea {
   -webkit-appearance: none;
-  border-radius: 0;
+  border-radius: 3px;
   background-color: #FFFFFF;
   border-style: solid;
   border-width: 1px;
@@ -276,6 +280,3 @@ label.error {
 }
 
 .hide {display: none !important;}
-textarea, input, #live-preview { border-radius: 3px !important; }
-li:first-child  { border-radius: 3px 3px 0px 0px !important; }
-li:last-child   { border-radius: 0px 0px 3px 3px !important; }
