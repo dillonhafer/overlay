@@ -8,7 +8,7 @@ export default React.createClass({
     index: React.PropTypes.number,
     hideModal: React.PropTypes.bool
   },
-  pattern: function() {
+  patternToDelete: function() {
     let overlay = this.props.overlays[this.props.index] || {pattern: ''};
     return overlay.pattern;
   },
@@ -20,14 +20,14 @@ export default React.createClass({
       hide: this.props.hideModal
     });
     return (
-      <div id="overlay-container-1" className={classes}>
+      <div id="overlay-container" className={classes}>
         <div id="content-settings-page" className="page">
           <a href='#' className="close-button" onClick={this.props.cancelDelete}>&#215;</a>
           <h1>Confirm Delete</h1>
           <div className="content-area">
             <section>
               <p>Are you sure you want to delete the overlay for:</p>
-              <h3>{this.pattern()}</h3>
+              <h3>{this.patternToDelete()}</h3>
               <p>This cannot be undone.</p>
             </section>
           </div>
