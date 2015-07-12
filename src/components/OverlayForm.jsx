@@ -25,11 +25,7 @@ export default React.createClass({
           <label htmlFor='pattern'>URL Pattern</label>
           <input type='text' id='pattern' name='pattern' placeholder='example.com' value={this.props.pattern} onChange={this.props.updateForm} required='required' />
           <label htmlFor='html'>HTML</label>
-          <pre>
-            <code className="language-css">
-              <textarea id='html' placeholder={this.placeholder()} name='html' value={this.props.html} onChange={this.props.updateForm} required></textarea>
-            </code>
-          </pre>
+          <textarea id='html' placeholder={this.placeholder()} name='html' value={this.props.html} onChange={this.props.updateForm} required></textarea>
           <div className='clear'>
             <button id="save" name='save' className={classes} onClick={this.props.saveOverlay} disabled={this.isDisabled()}>Save</button>
           </div>
