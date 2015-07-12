@@ -1,14 +1,14 @@
 import React from 'react/addons';
 
 export default React.createClass({
-  placeholder: function() {
-    return '<div style="background: red;">You are on Production!</div>';
-  },
   propTypes: {
     html: React.PropTypes.string,
     pattern: React.PropTypes.string,
     updateForm: React.PropTypes.func,
     saveOverlay: React.PropTypes.func
+  },
+  placeholder: function() {
+    return '<div style="background: red;">\n  You are on Production!\n</div>';
   },
   isDisabled: function() {
     return (this.props.pattern === '' || this.props.html === '');
