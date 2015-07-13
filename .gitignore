@@ -1,3 +1,4 @@
 node_modules
 options.dev.js
 *.log
+build
